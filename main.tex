@@ -1,0 +1,198 @@
+\documentclass[aspectratio=169]{beamer}
+
+% 테마 설정
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% 한국어 지원
+\usepackage[utf8]{inputenc}
+\usepackage{kotex}
+
+% 수학 기호
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% 코드 하이라이팅
+\usepackage{listings}
+\usepackage{xcolor}
+
+% 코드 스타일 설정
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    frame=single,
+    breaklines=true,
+    breakatwhitespace=true
+}
+
+% 제목 정보
+\title{Beamer를 활용한 LaTeX 프레젠테이션}
+\subtitle{효과적인 발표 자료 작성법}
+\author{발표자 이름}
+\institute{소속 기관}
+\date{\today}
+
+\begin{document}
+
+% 제목 슬라이드
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% 목차 슬라이드
+\begin{frame}{목차}
+    \tableofcontents
+\end{frame}
+
+\section{Beamer 소개}
+
+\begin{frame}{Beamer란?}
+    \begin{itemize}
+        \item<1-> LaTeX 기반의 프레젠테이션 클래스
+        \item<2-> 수학 공식과 코드를 아름답게 표현
+        \item<3-> 다양한 테마와 색상 테마 제공
+        \item<4-> PDF 형식으로 출력되어 호환성 우수
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Beamer의 장점}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{장점:}
+            \begin{itemize}
+                \item 수학 공식 지원
+                \item 코드 하이라이팅
+                \item 일관된 디자인
+                \item 버전 관리 용이
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \textbf{단점:}
+            \begin{itemize}
+                \item 학습 곡선
+                \item 실시간 편집 어려움
+                \item 복잡한 레이아웃 제한
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{수학 공식 예제}
+
+\begin{frame}{수학 공식 표현}
+    \begin{block}{이차방정식}
+        $ax^2 + bx + c = 0$의 해는 다음과 같습니다:
+        \[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]
+    \end{block}
+    
+    \pause
+    
+    \begin{block}{적분 예제}
+        \[\int_{0}^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}\]
+    \end{block}
+\end{frame}
+
+\begin{frame}{행렬과 벡터}
+    \begin{align}
+        A &= \begin{pmatrix}
+            a_{11} & a_{12} \\
+            a_{21} & a_{22}
+        \end{pmatrix} \\
+        \vec{v} &= \begin{pmatrix}
+            v_1 \\
+            v_2
+        \end{pmatrix}
+    \end{align}
+    
+    \pause
+    
+    행렬 곱셈:
+    \[A\vec{v} = \begin{pmatrix}
+        a_{11}v_1 + a_{12}v_2 \\
+        a_{21}v_1 + a_{22}v_2
+    \end{pmatrix}\]
+\end{frame}
+
+\section{코드 예제}
+
+\begin{frame}[fragile]{Python 코드 예제}
+    \begin{lstlisting}
+def fibonacci(n):
+    """피보나치 수열 계산"""
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+# 피보나치 수열 출력
+for i in range(10):
+    print(f"F({i}) = {fibonacci(i)}")
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{알고리즘 복잡도}
+    \begin{block}{시간 복잡도 분석}
+        \begin{itemize}
+            \item 최선의 경우: $O(1)$
+            \item 평균의 경우: $O(n)$
+            \item 최악의 경우: $O(2^n)$
+        \end{itemize}
+    \end{block}
+    
+    \pause
+    
+    \begin{alertblock}{주의사항}
+        재귀적 피보나치 함수는 큰 수에 대해 매우 비효율적입니다!
+    \end{alertblock}
+\end{frame}
+
+\section{그래프와 차트}
+
+\begin{frame}{데이터 시각화}
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{알고리즘} & \textbf{시간복잡도} & \textbf{공간복잡도} \\
+            \hline
+            버블 정렬 & $O(n^2)$ & $O(1)$ \\
+            퀵 정렬 & $O(n \log n)$ & $O(\log n)$ \\
+            병합 정렬 & $O(n \log n)$ & $O(n)$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\section{결론}
+
+\begin{frame}{요약}
+    \begin{enumerate}
+        \item<1-> Beamer는 LaTeX 기반의 강력한 프레젠테이션 도구
+        \item<2-> 수학 공식과 코드를 아름답게 표현 가능
+        \item<3-> 다양한 테마와 커스터마이징 옵션
+        \item<4-> 학술 발표에 매우 적합
+    \end{enumerate}
+    
+    \pause
+    
+    \begin{center}
+        \Large \textbf{감사합니다!}
+    \end{center}
+\end{frame}
+
+\begin{frame}{질문}
+    \begin{center}
+        \Huge 질문이 있으시면 언제든지 물어보세요!
+        
+        \vspace{1cm}
+        
+        \large 이메일: example@university.edu
+    \end{center}
+\end{frame}
+
+\end{document}

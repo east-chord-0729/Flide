@@ -1,0 +1,67 @@
+{
+    // 1. LaTeX 컴파일러 도구 정의
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatexmk",
+            "command": "latexmk",
+            "args": [
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        }
+        // 필요한 경우 lualatex 도구도 추가할 수 있습니다:
+        // {
+        //     "name": "lualatexmk",
+        //     "command": "latexmk",
+        //     "args": [
+        //         "-lualatex",
+        //         "-outdir=%OUTDIR%",
+        //         "%DOCFILE%"
+        //     ]
+        // }
+    ],
+
+    // 2. 컴파일 레시피 정의 (어떤 도구를 어떤 순서로 사용할지)
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatexmk",
+            "tools": [
+                "xelatexmk"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        // BibTeX 등을 사용한다면 아래와 같이 여러 도구를 조합할 수 있습니다.
+        // {
+        //     "name": "xelatex -> bibtex -> xelatex*2",
+        //     "tools": [
+        //         "xelatex",
+        //         "bibtex",
+        //         "xelatex",
+        //         "xelatex"
+        //     ]
+        // }
+    ],
+
+    // 3. 기본 컴파일 레시피 설정
+    "latex-workshop.latex.recipe.default": "xelatexmk", // 또는 "xelatex" 또는 원하는 레시피 이름
+
+    // (선택 사항) 매직 코멘트 무시를 비활성화하여 .tex 파일 내에서 컴파일러를 지정할 수 있도록 합니다.
+    // 이것을 false로 설정하면 아래 방법 2가 작동합니다.
+    "latex-workshop.latex.build.forceRecipeUsage": false 
+}
