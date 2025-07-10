@@ -1,46 +1,47 @@
 \documentclass[aspectratio=169]{beamer}
 
-% 테마 설정
+% Setting theme and color
+\sloppy
 \usetheme{Madrid}
 \usecolortheme{default}
 
-% 한국어 지원
-\usepackage[utf8]{inputenc}
-\usepackage{kotex}
+\usepackage[utf8]{inputenc}    % UTF-8 encoding support
+\usepackage{kotex}             % Korean language package
+\usepackage{amsmath}           % Advanced math formatting
+\usepackage{amssymb}           % Mathematical symbols
+\usepackage{listings}          % Code listing package
+\usepackage{xcolor}            % Color package for syntax highlighting
+\usepackage{fontspec}          % Font configuration (XeLaTeX compilation required)
 
-% 수학 기호
-\usepackage{amsmath}
-\usepackage{amssymb}
+% Prevent Beamer from setting its own font configuration and hand over control to fontspec
+\usefonttheme{professionalfonts}
 
-% 코드 하이라이팅
-\usepackage{listings}
-\usepackage{xcolor}
+% Detailed Pretendard font family configuration
+\setsansfont{Pretendard}[
+    Path          = ./fonts/,      % Font file path
+    Extension     = .otf,          % File extension
+    UprightFont   = *-Regular,     % Default (md) series: Regular
+    BoldFont      = *-Bold,        % Bold (bf) series: Bold
+    FontFace      = {ul}{n}{*-Thin},       % UltraLight (ul) series: Thin
+    FontFace      = {el}{n}{*-ExtraLight}, % ExtraLight (el) series: ExtraLight
+    FontFace      = {l}{n}{*-Light},       % Light (l) series: Light
+    FontFace      = {mb}{n}{*-Medium},     % Medium (mb) series: Medium
+    FontFace      = {sb}{n}{*-SemiBold},   % SemiBold (sb) series: SemiBold
+    FontFace      = {eb}{n}{*-ExtraBold},  % ExtraBold (eb) series: ExtraBold
+    FontFace      = {ub}{n}{*-Black}       % UltraBold/Black (ub) series: Black
+]
 
-% 코드 스타일 설정
-\lstset{
-    language=Python,
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{blue},
-    commentstyle=\color{green!60!black},
-    stringstyle=\color{red},
-    numbers=left,
-    numberstyle=\tiny,
-    numbersep=5pt,
-    frame=single,
-    breaklines=true,
-    breakatwhitespace=true
-}
+% Include title page configuration
+\input{title.tex}
 
-% 제목 정보
-\title{Beamer를 활용한 LaTeX 프레젠테이션}
-\subtitle{효과적인 발표 자료 작성법}
-\author{발표자 이름}
-\institute{소속 기관}
-\date{\today}
+% Include footer configuration
+\input{foot.tex}
+
+% Add required packages for custom title page
+\usepackage{tikz}
 
 \begin{document}
 
-% 제목 슬라이드
 \begin{frame}
     \titlepage
 \end{frame}
@@ -120,21 +121,6 @@
 \end{frame}
 
 \section{코드 예제}
-
-\begin{frame}[fragile]{Python 코드 예제}
-    \begin{lstlisting}
-def fibonacci(n):
-    """피보나치 수열 계산"""
-    if n <= 1:
-        return n
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
-
-# 피보나치 수열 출력
-for i in range(10):
-    print(f"F({i}) = {fibonacci(i)}")
-    \end{lstlisting}
-\end{frame}
 
 \begin{frame}[fragile]{알고리즘 복잡도}
     \begin{block}{시간 복잡도 분석}
