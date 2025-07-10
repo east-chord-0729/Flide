@@ -1,0 +1,15 @@
+% Footer customization
+\setbeamertemplate{footline}{
+	\begin{tikzpicture}[remember picture, overlay]
+		% Page numbers
+		\node[text  = gray,
+					align = center,
+					font  = \tiny\fontseries{el}\selectfont] 
+			at ([yshift=0.4cm]current page.south) {
+				\insertframenumber \; / \ \inserttotalframenumber
+			};
+	\end{tikzpicture}
+}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{} 

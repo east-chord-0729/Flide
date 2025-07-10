@@ -1,0 +1,43 @@
+% Title slide configuration
+\title{HQC(Hamming Quasi-Cyclic), the new KEM}
+\subtitle{2025 KpqC 연구단 워크숍}
+\author{DongHyeon Kim}
+\institute{Future cryptography Design Lab (FDL), Kookmin University}
+\date{\today}
+
+% Custom title page styling
+\setbeamertemplate{title page} {
+  \begin{tikzpicture}[remember picture, overlay]
+    % Title Display
+    \node[text  = black, 
+          align = center,
+          font  = \fontsize{18}{18}\fontseries{sb}\selectfont] 
+      at (current page.center) {\inserttitle};
+    
+    % Subtitle Display
+    \node[text  = black, 
+          align = center,
+          font  = \fontsize{10}{10}\fontseries{sb}\selectfont] 
+      at ([yshift=0.7cm]current page.center) {\insertsubtitle};
+    
+    % Author DisplayDisplay
+    \node[text  = black,
+          align = center,
+          font  = \fontsize{10}{10}\fontseries{el}\selectfont] 
+          at ([yshift=-1cm]current page.center) {
+          \insertauthor
+    };
+
+    % Institute Display
+    \node[text  = black,
+          align = center,
+          font  = \fontsize{10}{10}\fontseries{el}\selectfont]
+      at ([yshift=-1.5cm]current page.center) {\insertinstitute};
+    
+    % % Date
+    % \node[text=blue!50!black] 
+    %       at ([yshift=-9cm]current page.center) {
+    %       \usebeamerfont{date}\insertdate
+    % };
+  \end{tikzpicture}
+} 
